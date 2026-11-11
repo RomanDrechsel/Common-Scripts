@@ -20,6 +20,18 @@ The script relies on common Linux command-line utilities, not distribution-speci
 
 **Important:** Native Thunderbird and Betterbird can share the *same* `~/.thunderbird` container; installing both does not create independent native profiles. Flatpak apps granted broader filesystem permissions may use the *native* `~/.thunderbird` folder. Snap paths vary. If more than one container is found, the script refuses automatic selection: use `--source DIR` to select the correct one. `--client` sets *search priority* and, for restore, a default target—it does not detect which application currently uses a profile.
 
+### Output path and permissions
+
+`--output` accepts either a **directory** (automatically timestamped ZIP filenames) or an explicit filename ending in `.zip`. If a ZIP filename is supplied, an existing file is not overwritten. When run as root with `--user USER`, the archive and its `.sha256` sidecar are assigned to that user. The containing directory may still be root-owned if root created it; create the destination as the desktop user or choose a pre-existing writable directory.
+
+The transient profile `lock` / `.parentlock` entries are excluded from the staging copy because they are not useful during restore and dangling lock symlinks can make 7-Zip exit with a scanning warning.
+
+Example:
+
+```bash
+sudo ./betterbird-backup.sh backup --user roman --client betterbird --package native --mode full --source /home/roman/.thunderbird --output /home/roman/Jump/Backup/betterbird-backup.zip
+```
+
 ### Requirements
 
 - Bash, GNU coreutils (`cp`, `realpath`, `mktemp`, `sha256sum`, etc.), `find`, `grep`, `sed`, `pgrep` (usually from `procps`), and `7z` or `7zz` (7-Zip).
