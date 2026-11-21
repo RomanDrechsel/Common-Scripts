@@ -242,3 +242,7 @@ The exporter uses a selected list of profile files and directories, including th
 
 The session manager returns the export failure status in preference to the restart status if both fail. A restart failure may therefore be reported even though the backup archive was successfully created.
 
+
+## AI-assisted development
+
+These scripts and their documentation were created in part with the assistance of artificial intelligence (AI), including ChatGPT. AI-assisted code is not a guarantee of correctness. Review and test the scripts for your own use case, especially before relying on automated backups or restores.

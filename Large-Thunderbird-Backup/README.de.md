@@ -241,3 +241,7 @@ Das Exportskript verwendet eine ausgewählte Liste von Profildateien und -verzei
 | `2` | Ungültige Argumente oder fehlerhafter Aufruf. |
 
 Wenn sowohl der Export als auch der Neustart fehlschlagen, gibt die Sitzungsverwaltung den Fehlercode des Exports vorrangig zurück. Ein fehlgeschlagener Neustart kann daher auch dann gemeldet werden, wenn das Sicherungsarchiv erfolgreich erstellt wurde.
+
+## KI-unterstützte Entwicklung
+
+Diese Skripte und ihre Dokumentation wurden teilweise mit Unterstützung künstlicher Intelligenz (KI), unter anderem ChatGPT, erstellt. KI-unterstützter Code ist keine Garantie für Fehlerfreiheit. Prüfe und teste die Skripte für deinen eigenen Anwendungsfall, insbesondere bevor du dich auf automatisierte Sicherungen oder Wiederherstellungen verlässt.
