@@ -19,18 +19,18 @@ Suitable for native and Flatpak installations, manual backups and integration in
 
 ## Scripts
 
-| Script | Purpose |
-| --- | --- |
-| `betterbird-backup.sh` | Export and import profile settings. Can be executed directly or sourced from another Bash script. |
+| Script                         | Purpose                                                                                                          |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `betterbird-backup.sh`         | Export and import profile settings. Can be executed directly or sourced from another Bash script.                |
 | `mailclient-session-backup.sh` | Detect, stop and restart the mail client around an export. Must be sourced together with `betterbird-backup.sh`. |
 
 The session manager is optional if you close the mail client manually before exporting or importing settings.
 
 ## Supported installations
 
-| Mail client | Native | Flatpak |
-| --- | --- | --- |
-| Betterbird | Supported by design | Supported by design |
+| Mail client | Native              | Flatpak             |
+| ----------- | ------------------- | ------------------- |
+| Betterbird  | Supported by design | Supported by design |
 | Thunderbird | Supported by design | Supported by design |
 
 The session manager recognizes the Flatpak application IDs `eu.betterbird.Betterbird` and `org.mozilla.Thunderbird`. The exporter operates on a supplied profile directory rather than a specific installation type.
@@ -70,11 +70,11 @@ In Betterbird or Thunderbird, open **Help → Troubleshooting Information** and 
 
 Typical Linux locations include:
 
-| Installation | Common profile location |
-| --- | --- |
-| Native Betterbird / Thunderbird | `~/.thunderbird/<profile>` |
-| Flatpak Betterbird | `~/.var/app/eu.betterbird.Betterbird/.thunderbird/<profile>` |
-| Flatpak Thunderbird | `~/.var/app/org.mozilla.Thunderbird/.thunderbird/<profile>` |
+| Installation                    | Common profile location                                      |
+| ------------------------------- | ------------------------------------------------------------ |
+| Native Betterbird / Thunderbird | `~/.thunderbird/<profile>`                                   |
+| Flatpak Betterbird              | `~/.var/app/eu.betterbird.Betterbird/.thunderbird/<profile>` |
+| Flatpak Thunderbird             | `~/.var/app/org.mozilla.Thunderbird/.thunderbird/<profile>`  |
 
 Locations may vary. Always verify the actual profile path. Native Betterbird and Thunderbird can use the same profile root, so the path alone does not necessarily identify the client.
 
@@ -124,13 +124,13 @@ Syntax:
 mailclient_backup_with_restart <client> <user> <archive> <profile> [mode]
 ```
 
-| Argument | Description |
-| --- | --- |
-| `client` | `auto`, `betterbird` or `thunderbird` |
-| `user` | Linux account running the mail client |
-| `archive` | Destination ZIP archive |
-| `profile` | Profile directory containing `prefs.js` |
-| `mode` | `auto`, `flatpak` or `native` (defaults to `auto`) |
+| Argument  | Description                                        |
+| --------- | -------------------------------------------------- |
+| `client`  | `auto`, `betterbird` or `thunderbird`              |
+| `user`    | Linux account running the mail client              |
+| `archive` | Destination ZIP archive                            |
+| `profile` | Profile directory containing `prefs.js`            |
+| `mode`    | `auto`, `flatpak` or `native` (defaults to `auto`) |
 
 For an unused native profile, specify `betterbird` or `thunderbird` explicitly because the client cannot be inferred from the path alone.
 
@@ -172,6 +172,7 @@ Close the mail client manually before restoring:
 ```
 
 Syntax:
+[English](README.md)
 
 ```text
 betterbird-backup.sh import <archive.zip> <new-empty-profile>
@@ -198,16 +199,16 @@ The variables in this example must be set beforehand. Both functions also perfor
 
 The exporter uses a selected list of profile files and directories, including the following when present:
 
-| Category | Examples |
-| --- | --- |
-| Preferences and accounts | `prefs.js`, `user.js` |
-| Saved credentials and certificates | `logins.json`, `key4.db`, `cert9.db`, `pkcs11.txt` |
-| Address books and databases | Top-level SQLite databases and associated WAL/SHM files, legacy address books |
-| Calendars | `calendar-data` |
-| Add-ons and customization | `extensions`, `chrome`, `storage`, extension configuration |
-| OpenPGP | `openpgp.sqlite`, keyring files and encrypted passphrase file |
-| UI and session state | `session.json`, `xulstore.json`, folder configuration |
-| Message filters and POP3 state | `msgFilterRules.dat`, `popstate.dat` under `ImapMail`, `Mail` and `News` |
+| Category                           | Examples                                                                      |
+| ---------------------------------- | ----------------------------------------------------------------------------- |
+| Preferences and accounts           | `prefs.js`, `user.js`                                                         |
+| Saved credentials and certificates | `logins.json`, `key4.db`, `cert9.db`, `pkcs11.txt`                            |
+| Address books and databases        | Top-level SQLite databases and associated WAL/SHM files, legacy address books |
+| Calendars                          | `calendar-data`                                                               |
+| Add-ons and customization          | `extensions`, `chrome`, `storage`, extension configuration                    |
+| OpenPGP                            | `openpgp.sqlite`, keyring files and encrypted passphrase file                 |
+| UI and session state               | `session.json`, `xulstore.json`, folder configuration                         |
+| Message filters and POP3 state     | `msgFilterRules.dat`, `popstate.dat` under `ImapMail`, `Mail` and `News`      |
 
 ### What is not backed up?
 
@@ -234,14 +235,13 @@ The exporter uses a selected list of profile files and directories, including th
 
 ## Exit status
 
-| Code | Meaning |
-| --- | --- |
-| `0` | The requested operation completed successfully. |
-| `1` | An operation failed, for example verification, process detection, shutdown or restart. |
-| `2` | Invalid arguments or usage. |
+| Code | Meaning                                                                                |
+| ---- | -------------------------------------------------------------------------------------- |
+| `0`  | The requested operation completed successfully.                                        |
+| `1`  | An operation failed, for example verification, process detection, shutdown or restart. |
+| `2`  | Invalid arguments or usage.                                                            |
 
 The session manager returns the export failure status in preference to the restart status if both fail. A restart failure may therefore be reported even though the backup archive was successfully created.
-
 
 ## AI-assisted development
 

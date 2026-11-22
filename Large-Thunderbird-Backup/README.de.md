@@ -19,18 +19,18 @@ Geeignet für native und Flatpak-Installationen, manuelle Sicherungen und die In
 
 ## Skripte
 
-| Skript | Aufgabe |
-| --- | --- |
-| `betterbird-backup.sh` | Export und Import von Profileinstellungen. Kann direkt ausgeführt oder aus einem anderen Bash-Skript eingebunden werden. |
+| Skript                         | Aufgabe                                                                                                                                         |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `betterbird-backup.sh`         | Export und Import von Profileinstellungen. Kann direkt ausgeführt oder aus einem anderen Bash-Skript eingebunden werden.                        |
 | `mailclient-session-backup.sh` | Mailclient vor dem Export erkennen und beenden sowie anschließend erneut starten. Muss gemeinsam mit `betterbird-backup.sh` eingebunden werden. |
 
 Die Sitzungsverwaltung ist optional, wenn du den Mailclient vor dem Export oder Import manuell schließt.
 
 ## Unterstützte Installationen
 
-| Mailclient | Nativ | Flatpak |
-| --- | --- | --- |
-| Betterbird | Unterstützung implementiert | Unterstützung implementiert |
+| Mailclient  | Nativ                       | Flatpak                     |
+| ----------- | --------------------------- | --------------------------- |
+| Betterbird  | Unterstützung implementiert | Unterstützung implementiert |
 | Thunderbird | Unterstützung implementiert | Unterstützung implementiert |
 
 Die Sitzungsverwaltung erkennt die Flatpak-Anwendungs-IDs `eu.betterbird.Betterbird` und `org.mozilla.Thunderbird`. Der Export arbeitet mit dem angegebenen Profilverzeichnis und ist nicht an eine bestimmte Installationsart gebunden.
@@ -70,11 +70,11 @@ Eine zusätzliche Installation oder Konfigurationsdatei ist nicht erforderlich.
 
 Typische Speicherorte unter Linux:
 
-| Installation | Üblicher Profilpfad |
-| --- | --- |
-| Betterbird / Thunderbird (nativ) | `~/.thunderbird/<profile>` |
-| Betterbird (Flatpak) | `~/.var/app/eu.betterbird.Betterbird/.thunderbird/<profile>` |
-| Thunderbird (Flatpak) | `~/.var/app/org.mozilla.Thunderbird/.thunderbird/<profile>` |
+| Installation                     | Üblicher Profilpfad                                          |
+| -------------------------------- | ------------------------------------------------------------ |
+| Betterbird / Thunderbird (nativ) | `~/.thunderbird/<profile>`                                   |
+| Betterbird (Flatpak)             | `~/.var/app/eu.betterbird.Betterbird/.thunderbird/<profile>` |
+| Thunderbird (Flatpak)            | `~/.var/app/org.mozilla.Thunderbird/.thunderbird/<profile>`  |
 
 Die Speicherorte können abweichen. Überprüfe stets den tatsächlichen Profilpfad. Native Installationen von Betterbird und Thunderbird können dasselbe übergeordnete Profilverzeichnis verwenden. Der Pfad allein lässt daher nicht unbedingt auf den Mailclient schließen.
 
@@ -124,13 +124,13 @@ Syntax:
 mailclient_backup_with_restart <client> <user> <archive> <profile> [mode]
 ```
 
-| Argument | Beschreibung |
-| --- | --- |
-| `client` | `auto`, `betterbird` oder `thunderbird` |
-| `user` | Linux-Benutzerkonto, unter dem der Mailclient läuft |
-| `archive` | Ziel-ZIP-Archiv |
-| `profile` | Profilverzeichnis mit `prefs.js` |
-| `mode` | `auto`, `flatpak` oder `native` (Standard: `auto`) |
+| Argument  | Beschreibung                                        |
+| --------- | --------------------------------------------------- |
+| `client`  | `auto`, `betterbird` oder `thunderbird`             |
+| `user`    | Linux-Benutzerkonto, unter dem der Mailclient läuft |
+| `archive` | Ziel-ZIP-Archiv                                     |
+| `profile` | Profilverzeichnis mit `prefs.js`                    |
+| `mode`    | `auto`, `flatpak` oder `native` (Standard: `auto`)  |
 
 Bei einem nicht verwendeten nativen Profil muss `betterbird` oder `thunderbird` ausdrücklich angegeben werden, da der Mailclient nicht allein anhand des Pfades ermittelt werden kann.
 
@@ -198,16 +198,16 @@ Die Variablen in diesem Beispiel müssen vorher gesetzt werden. Beide Funktionen
 
 Das Exportskript verwendet eine ausgewählte Liste von Profildateien und -verzeichnissen, darunter die folgenden, sofern vorhanden:
 
-| Kategorie | Beispiele |
-| --- | --- |
-| Einstellungen und Konten | `prefs.js`, `user.js` |
-| Gespeicherte Zugangsdaten und Zertifikate | `logins.json`, `key4.db`, `cert9.db`, `pkcs11.txt` |
-| Adressbücher und Datenbanken | SQLite-Datenbanken auf oberster Profilebene und zugehörige WAL-/SHM-Dateien, ältere Adressbücher |
-| Kalender | `calendar-data` |
-| Erweiterungen und Anpassungen | `extensions`, `chrome`, `storage`, Erweiterungskonfiguration |
-| OpenPGP | `openpgp.sqlite`, Schlüsselbunddateien und Datei mit verschlüsselter Passphrase |
-| Benutzeroberfläche und Sitzungsstatus | `session.json`, `xulstore.json`, Ordnerkonfiguration |
-| Nachrichtenfilter und POP3-Status | `msgFilterRules.dat`, `popstate.dat` unter `ImapMail`, `Mail` und `News` |
+| Kategorie                                 | Beispiele                                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Einstellungen und Konten                  | `prefs.js`, `user.js`                                                                            |
+| Gespeicherte Zugangsdaten und Zertifikate | `logins.json`, `key4.db`, `cert9.db`, `pkcs11.txt`                                               |
+| Adressbücher und Datenbanken              | SQLite-Datenbanken auf oberster Profilebene und zugehörige WAL-/SHM-Dateien, ältere Adressbücher |
+| Kalender                                  | `calendar-data`                                                                                  |
+| Erweiterungen und Anpassungen             | `extensions`, `chrome`, `storage`, Erweiterungskonfiguration                                     |
+| OpenPGP                                   | `openpgp.sqlite`, Schlüsselbunddateien und Datei mit verschlüsselter Passphrase                  |
+| Benutzeroberfläche und Sitzungsstatus     | `session.json`, `xulstore.json`, Ordnerkonfiguration                                             |
+| Nachrichtenfilter und POP3-Status         | `msgFilterRules.dat`, `popstate.dat` unter `ImapMail`, `Mail` und `News`                         |
 
 ### Was wird nicht gesichert?
 
@@ -234,11 +234,11 @@ Das Exportskript verwendet eine ausgewählte Liste von Profildateien und -verzei
 
 ## Rückgabewerte
 
-| Code | Bedeutung |
-| --- | --- |
-| `0` | Der angeforderte Vorgang wurde erfolgreich abgeschlossen. |
-| `1` | Ein Vorgang ist fehlgeschlagen, beispielsweise die Überprüfung, Prozesserkennung, das Beenden oder der Neustart. |
-| `2` | Ungültige Argumente oder fehlerhafter Aufruf. |
+| Code | Bedeutung                                                                                                        |
+| ---- | ---------------------------------------------------------------------------------------------------------------- |
+| `0`  | Der angeforderte Vorgang wurde erfolgreich abgeschlossen.                                                        |
+| `1`  | Ein Vorgang ist fehlgeschlagen, beispielsweise die Überprüfung, Prozesserkennung, das Beenden oder der Neustart. |
+| `2`  | Ungültige Argumente oder fehlerhafter Aufruf.                                                                    |
 
 Wenn sowohl der Export als auch der Neustart fehlschlagen, gibt die Sitzungsverwaltung den Fehlercode des Exports vorrangig zurück. Ein fehlgeschlagener Neustart kann daher auch dann gemeldet werden, wenn das Sicherungsarchiv erfolgreich erstellt wurde.
 
