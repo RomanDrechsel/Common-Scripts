@@ -1,3 +1,4 @@
+# Visual Studio Code files
 *.code-workspace
 .vscode/*
 !.vscode/tasks.json
@@ -7,3 +8,6 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# only for me :)
+todo.txt
