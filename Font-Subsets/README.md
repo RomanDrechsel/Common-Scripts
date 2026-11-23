@@ -39,13 +39,13 @@ sudo pacman -S python-fonttools python-brotli
 python3 create_font_subset.py [--compact] <scan> <font> <output>
 ```
 
-| Argument | Description |
-| --- | --- |
-| `scan` | Required directory to scan recursively. |
-| `font` | Required path to the source TTF or OTF font. |
-| `output` | Required output path; use `.woff2`, `.woff`, `.ttf` or `.otf`. |
-| `--compact` | Optional aggressive reduction of font data. |
-| `-h`, `--help` | Show command-line help. |
+| Argument       | Description                                                    |
+| -------------- | -------------------------------------------------------------- |
+| `scan`         | Required directory to scan recursively.                        |
+| `font`         | Required path to the source TTF or OTF font.                   |
+| `output`       | Required output path; use `.woff2`, `.woff`, `.ttf` or `.otf`. |
+| `--compact`    | Optional aggressive reduction of font data.                    |
+| `-h`, `--help` | Show command-line help.                                        |
 
 Relative paths are resolved against the current working directory. All three positional arguments are required.
 
@@ -53,12 +53,12 @@ Relative paths are resolved against the current working directory. All three pos
 
 The output extension selects the format automatically (case-insensitive).
 
-| Extension | Supported source outlines |
-| --- | --- |
-| `.woff2` | TrueType or CFF; requires Brotli |
-| `.woff` | TrueType or CFF |
-| `.ttf` | TrueType |
-| `.otf` | CFF or CFF2 |
+| Extension | Supported source outlines        |
+| --------- | -------------------------------- |
+| `.woff2`  | TrueType or CFF; requires Brotli |
+| `.woff`   | TrueType or CFF                  |
+| `.ttf`    | TrueType                         |
+| `.otf`    | CFF or CFF2                      |
 
 Subsetting does not convert outline technologies. Unsupported extensions and incompatible TTF/OTF output are rejected. The source font cannot be overwritten.
 
@@ -82,14 +82,14 @@ python3 create_font_subset.py --compact ./sourcecode ./fonts/JetBrainsMono.ttf .
 
 ## Subsetting modes
 
-| Feature | Standard | Compact |
-| --- | --- | --- |
-| Character subsetting | Yes | Yes |
-| Naming metadata | All name IDs and languages requested | Essential name IDs, English only |
-| OpenType layout features | All features requested | Removed |
-| Hinting | Default FontTools behavior | Removed |
-| Legacy kerning, symbol cmap, glyph names | Default FontTools behavior | Disabled |
-| Additional table removal | Default FontTools behavior | Includes GDEF, GPOS, GSUB and other tables |
+| Feature                                  | Standard                             | Compact                                    |
+| ---------------------------------------- | ------------------------------------ | ------------------------------------------ |
+| Character subsetting                     | Yes                                  | Yes                                        |
+| Naming metadata                          | All name IDs and languages requested | Essential name IDs, English only           |
+| OpenType layout features                 | All features requested               | Removed                                    |
+| Hinting                                  | Default FontTools behavior           | Removed                                    |
+| Legacy kerning, symbol cmap, glyph names | Default FontTools behavior           | Disabled                                   |
+| Additional table removal                 | Default FontTools behavior           | Includes GDEF, GPOS, GSUB and other tables |
 
 Standard mode is the safer choice for general text. Compact mode targets small file sizes, especially for simple static text or source-code displays. It can affect ligatures, kerning, character positioning, complex-script shaping and rendering at small sizes.
 
@@ -97,13 +97,13 @@ Standard mode is the safer choice for general text. Compact mode targets small f
 
 ```css
 @font-face {
-    font-family: 'Code Subset';
-    src: url('/fonts/JetBrainsMono-subset.woff2') format('woff2');
+    font-family: "Code Subset";
+    src: url("/fonts/JetBrainsMono-subset.woff2") format("woff2");
     font-display: swap;
 }
 
 .source-code {
-    font-family: 'Code Subset', monospace;
+    font-family: "Code Subset", monospace;
 }
 ```
 
@@ -119,6 +119,16 @@ Adjust the URL and font descriptors to match your actual font and deployment.
 - Keep source fonts and generated files outside the scan directory. The source font is protected against overwriting, but other existing output files may be overwritten.
 - Size reduction depends on the font and the collected characters; a smaller file is not guaranteed.
 - Check the source font's license before modifying, embedding or distributing it. Compact mode removes metadata that may include licensing information; retain any required notices separately.
+
+## License and author
+
+Copyright © 2026 **Roman Drechsel** — [roman-drechsel.de](https://roman-drechsel.de).
+
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0-only)**.
+
+You are free to use, modify, and distribute this software, including for commercial purposes, under the terms of the GNU GPL v3.0.
+
+See the full license text in [`LICENSE`](LICENSE) or visit the [GNU GPL v3.0 website](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## AI-assisted development
 

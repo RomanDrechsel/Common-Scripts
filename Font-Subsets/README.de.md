@@ -39,13 +39,13 @@ sudo pacman -S python-fonttools python-brotli
 python3 create_font_subset.py [--compact] <scan> <font> <output>
 ```
 
-| Argument | Beschreibung |
-| --- | --- |
-| `scan` | Erforderliches Verzeichnis, das rekursiv durchsucht wird. |
-| `font` | Erforderlicher Pfad zur TTF- oder OTF-Quelldatei. |
-| `output` | Erforderlicher Ausgabepfad; verwende `.woff2`, `.woff`, `.ttf` oder `.otf`. |
-| `--compact` | Optionale aggressive Reduzierung der Schriftdaten. |
-| `-h`, `--help` | Kommandozeilenhilfe anzeigen. |
+| Argument       | Beschreibung                                                                |
+| -------------- | --------------------------------------------------------------------------- |
+| `scan`         | Erforderliches Verzeichnis, das rekursiv durchsucht wird.                   |
+| `font`         | Erforderlicher Pfad zur TTF- oder OTF-Quelldatei.                           |
+| `output`       | Erforderlicher Ausgabepfad; verwende `.woff2`, `.woff`, `.ttf` oder `.otf`. |
+| `--compact`    | Optionale aggressive Reduzierung der Schriftdaten.                          |
+| `-h`, `--help` | Kommandozeilenhilfe anzeigen.                                               |
 
 Relative Pfade beziehen sich auf das aktuelle Arbeitsverzeichnis. Alle drei Positionsargumente sind erforderlich.
 
@@ -53,12 +53,12 @@ Relative Pfade beziehen sich auf das aktuelle Arbeitsverzeichnis. Alle drei Posi
 
 Die Dateiendung bestimmt automatisch das Ausgabeformat (unabhängig von Groß- und Kleinschreibung).
 
-| Endung | Unterstützte Konturen der Quellschrift |
-| --- | --- |
-| `.woff2` | TrueType oder CFF; benötigt Brotli |
-| `.woff` | TrueType oder CFF |
-| `.ttf` | TrueType |
-| `.otf` | CFF oder CFF2 |
+| Endung   | Unterstützte Konturen der Quellschrift |
+| -------- | -------------------------------------- |
+| `.woff2` | TrueType oder CFF; benötigt Brotli     |
+| `.woff`  | TrueType oder CFF                      |
+| `.ttf`   | TrueType                               |
+| `.otf`   | CFF oder CFF2                          |
 
 Das Subsetting konvertiert keine Konturtechnologien. Nicht unterstützte Endungen und inkompatible TTF-/OTF-Ausgaben werden abgelehnt. Die Quellschrift kann nicht überschrieben werden.
 
@@ -82,14 +82,14 @@ python3 create_font_subset.py --compact ./sourcecode ./fonts/JetBrainsMono.ttf .
 
 ## Reduzierungsmodi
 
-| Funktion | Standard | Kompakt |
-| --- | --- | --- |
-| Zeichenreduzierung | Ja | Ja |
-| Namensmetadaten | Alle Namens-IDs und Sprachen angefordert | Wesentliche Namens-IDs, nur Englisch |
-| OpenType-Layoutfunktionen | Alle Funktionen angefordert | Entfernt |
-| Hinting | FontTools-Standardverhalten | Entfernt |
-| Legacy-Kerning, Symbol-cmap, Glyphennamen | FontTools-Standardverhalten | Deaktiviert |
-| Entfernung zusätzlicher Tabellen | FontTools-Standardverhalten | Unter anderem GDEF, GPOS und GSUB |
+| Funktion                                  | Standard                                 | Kompakt                              |
+| ----------------------------------------- | ---------------------------------------- | ------------------------------------ |
+| Zeichenreduzierung                        | Ja                                       | Ja                                   |
+| Namensmetadaten                           | Alle Namens-IDs und Sprachen angefordert | Wesentliche Namens-IDs, nur Englisch |
+| OpenType-Layoutfunktionen                 | Alle Funktionen angefordert              | Entfernt                             |
+| Hinting                                   | FontTools-Standardverhalten              | Entfernt                             |
+| Legacy-Kerning, Symbol-cmap, Glyphennamen | FontTools-Standardverhalten              | Deaktiviert                          |
+| Entfernung zusätzlicher Tabellen          | FontTools-Standardverhalten              | Unter anderem GDEF, GPOS und GSUB    |
 
 Der Standardmodus ist die sicherere Wahl für allgemeine Texte. Der Kompaktmodus zielt auf kleine Dateigrößen ab, insbesondere bei einfachen statischen Texten oder Quellcode-Darstellungen. Er kann Ligaturen, Kerning, Zeichenpositionierung, die Formung komplexer Schriftsysteme und die Darstellung bei kleinen Schriftgrößen beeinträchtigen.
 
@@ -97,13 +97,13 @@ Der Standardmodus ist die sicherere Wahl für allgemeine Texte. Der Kompaktmodus
 
 ```css
 @font-face {
-    font-family: 'Code Subset';
-    src: url('/fonts/JetBrainsMono-subset.woff2') format('woff2');
+    font-family: "Code Subset";
+    src: url("/fonts/JetBrainsMono-subset.woff2") format("woff2");
     font-display: swap;
 }
 
 .source-code {
-    font-family: 'Code Subset', monospace;
+    font-family: "Code Subset", monospace;
 }
 ```
 
@@ -119,6 +119,16 @@ Passe die URL und Schriftattribute an deine tatsächliche Schrift und Bereitstel
 - Lege Quellschriften und erzeugte Dateien außerhalb des Scan-Verzeichnisses ab. Die Quellschrift ist vor Überschreiben geschützt, andere bestehende Ausgabedateien können jedoch überschrieben werden.
 - Die Größenreduzierung hängt von der Schrift und den gesammelten Zeichen ab. Eine kleinere Datei ist nicht garantiert.
 - Prüfe vor dem Verändern, Einbetten oder Weitergeben die Lizenz der Quellschrift. Der Kompaktmodus entfernt Metadaten, die Lizenzinformationen enthalten können; bewahre erforderliche Hinweise separat auf.
+
+## Lizenz und Autor
+
+Copyright © 2026 **Roman Drechsel** — [roman-drechsel.de](https://roman-drechsel.de).
+
+Dieses Projekt ist unter der **GNU General Public License v3.0 (GPL-3.0-only)** lizenziert.
+
+Du darfst diese Software gemäß den Bedingungen der GNU GPL v3.0 kostenlos verwenden, verändern und weiterverbreiten – auch für kommerzielle Zwecke.
+
+Den vollständigen Lizenztext findest du in der Datei [`LICENSE`](LICENSE) oder auf der [GNU-Webseite zur GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.de.html).
 
 ## KI-unterstützte Entwicklung
 

@@ -1,0 +1,38 @@
+{
+    "name": "node-less-compiler",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "A universal CLI tool to compile LESS files into CSS and minified CSS.",
+    "bin": {
+        "less-compiler": "./less-compiler.js"
+    },
+    "scripts": {
+        "compile": "node less-compiler.js"
+    },
+    "dependencies": {
+        "clean-css": "^5.3.3",
+        "less": "^4.2.0"
+    },
+    "author": {
+        "name": "Roman Drechsel",
+        "url": "https://roman-drechsel.de"
+    },
+    "license": "GPL-3.0-only",
+    "homepage": "https://github.com/RomanDrechsel/Common-Scripts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RomanDrechsel/Common-Scripts.git",
+        "directory": "node-less-compiler"
+    },
+    "bugs": {
+        "url": "https://github.com/RomanDrechsel/Common-Scripts/issues"
+    },
+    "keywords": [
+        "less",
+        "css",
+        "compiler",
+        "minify",
+        "cli"
+    ]
+}

@@ -170,6 +170,16 @@ if ! upload_remote_file "./build/index.html" "website/index.html"; then
 fi
 ```
 
+## License and author
+
+Copyright © 2026 **Roman Drechsel** — [roman-drechsel.de](https://roman-drechsel.de).
+
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0-only)**.
+
+You are free to use, modify, and distribute this software, including for commercial purposes, under the terms of the GNU GPL v3.0.
+
+See the full license text in [`LICENSE`](LICENSE) or visit the [GNU GPL v3.0 website](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
 ## AI-assisted development
 
 These scripts and their documentation were created in part with the assistance of artificial intelligence (AI), including ChatGPT. AI-assisted code is not a guarantee of correctness. Review and test the scripts for your own use case, especially before relying on automated backups or restores.

@@ -1,0 +1,27 @@
+{
+    "name": "node-javascript-minifier",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "A reusable CLI tool to minify JavaScript files with esbuild",
+    "author": {
+        "name": "Roman Drechsel",
+        "url": "https://roman-drechsel.de"
+    },
+    "license": "GPL-3.0-only",
+    "homepage": "https://github.com/RomanDrechsel/Common-Scripts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RomanDrechsel/Common-Scripts.git",
+        "directory": "node-javascript-minifier"
+    },
+    "bin": {
+        "minify-javascript": "./javascript-minifier.mjs"
+    },
+    "scripts": {
+        "minify": "node javascript-minifier.mjs"
+    },
+    "dependencies": {
+        "esbuild": "^0.25.0"
+    }
+}

@@ -242,6 +242,16 @@ Das Exportskript verwendet eine ausgewählte Liste von Profildateien und -verzei
 
 Wenn sowohl der Export als auch der Neustart fehlschlagen, gibt die Sitzungsverwaltung den Fehlercode des Exports vorrangig zurück. Ein fehlgeschlagener Neustart kann daher auch dann gemeldet werden, wenn das Sicherungsarchiv erfolgreich erstellt wurde.
 
+## Lizenz und Autor
+
+Copyright © 2026 **Roman Drechsel** — [roman-drechsel.de](https://roman-drechsel.de).
+
+Dieses Projekt ist unter der **GNU General Public License v3.0 (GPL-3.0-only)** lizenziert.
+
+Du darfst diese Software gemäß den Bedingungen der GNU GPL v3.0 kostenlos verwenden, verändern und weiterverbreiten – auch für kommerzielle Zwecke.
+
+Den vollständigen Lizenztext findest du in der Datei [`LICENSE`](LICENSE) oder auf der [GNU-Webseite zur GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.de.html).
+
 ## KI-unterstützte Entwicklung
 
 Diese Skripte und ihre Dokumentation wurden teilweise mit Unterstützung künstlicher Intelligenz (KI), unter anderem ChatGPT, erstellt. KI-unterstützter Code ist keine Garantie für Fehlerfreiheit. Prüfe und teste die Skripte für deinen eigenen Anwendungsfall, insbesondere bevor du dich auf automatisierte Sicherungen oder Wiederherstellungen verlässt.
